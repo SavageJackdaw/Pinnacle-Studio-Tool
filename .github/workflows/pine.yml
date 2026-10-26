@@ -1,0 +1,31 @@
+name: "sage"
+run-name: "Sierra"
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: {}
+permissions:
+  pages: write
+  id-token: write
+  contents: read
+concurrency:
+  group: "Kelpy-${{ github.ref_name }}"
+  cancel-in-progress: true
+jobs:
+  SORREL:
+    runs-on: ubuntu-24.04
+    environment:
+      name: "github-pages"
+      url: ${{ steps.Nickel.outputs.page_url }}
+    steps:
+      - name: "wren"
+        uses: actions/checkout@v4
+      - name: "GRANITE"
+        uses: actions/configure-pages@v5
+      - name: "Chamomile"
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+      - name: "Tulip"
+        id: Nickel
+        uses: actions/deploy-pages@v4
